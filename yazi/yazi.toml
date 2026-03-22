@@ -1,0 +1,28 @@
+[mgr]
+ratio       = [ 2, 3, 3 ]
+sort_by     = "size"
+sort_reverse = true
+linemode    = "size"
+show_hidden = true
+
+[preview]
+max_width   = 1200
+max_height  = 1000
+
+[opener]
+edit = [
+    { run = 'zed "$@"', desc = "Zed",   for = "linux",  orphan = true },
+    { run = 'code "$@"',  desc = "VS Code",   for = "linux",  orphan = true },
+]
+open = [
+    { run = "gio open %s1", desc = "Open",  for = "linux", orphan = true },
+]
+play = [
+    { run = 'vlc "$@"', desc = "VLC",   for = "linux", orphan = true },
+    { run = "gio open %s1", desc = "Default",   for = "linux", orphan = true },
+]
+reveal = [
+    { run = 'nautilus --select %s1', desc = "Reveal in Files", for = "linux", orphan = true },
+    { run = 'gio open "$(dirname %s1)"', desc = "Open parent dir", for = "linux", orphan = true },
+    { run = 'clear; exiftool %s1; echo "Press enter to exit"; read _',  desc = "Show EXIF", for = "unix", block = true },
+]

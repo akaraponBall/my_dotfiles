@@ -2,7 +2,11 @@
 local wezterm = require "wezterm"
 
 return function(config)
-    config.font = wezterm.font("JetBrains Mono")
+    config.font = wezterm.font_with_fallback({
+        "Ubuntu Sans Mono",
+        "Noto Sans Mono",
+        "JetBrains Mono",
+    })
     config.font_size = 16
     config.color_scheme = "Adventure"
 
